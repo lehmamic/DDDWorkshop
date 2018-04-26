@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace />
+    <StartupObject>DoneByMe.Bootstrap.Bootstrap</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Matching\Matching.csproj" />
+    <ProjectReference Include="..\Pricing\Pricing.csproj" />
+    <ProjectReference Include="..\mockroservices-dotnet\mockroservices-dotnet.csproj" />
+  </ItemGroup>
+
+</Project>
