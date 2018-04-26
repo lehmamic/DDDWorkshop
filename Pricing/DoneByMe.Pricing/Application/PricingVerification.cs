@@ -1,18 +1,17 @@
 ﻿using DoneByMe.Pricing.Model.Analysis;
 
 // Application Service
-namespace DoneByMe.Pricing.Application
-{
+namespace DoneByMe.Pricing.Application {
     public class PricingVerification
-
     {
-		public PricingVerification()
-		{
-		}
+		private readonly PricingAnalysisRepository repository;
 
-		public void VerifyPricing(string pricedItemId, long price)
-		{
-			new PricingAnalyzer().AnalyzePricing(pricedItemId, price);
-		}
-	}
+        public PricingVerification (PricingAnalysisRepository repository) {
+            this.repository = repository;
+        }
+
+        public void VerifyPricing (string pricedItemId, long price) {
+            new PricingAnalyzer(this.repository).AnalyzePricing (pricedItemId, price);
+        }
+    }
 }

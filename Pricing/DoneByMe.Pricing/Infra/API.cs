@@ -1,4 +1,5 @@
 ﻿using DoneByMe.Pricing.Application;
+using DoneByMe.Pricing.Infra.Persistence;
 
 namespace DoneByMe.Pricing.Infra
 {
@@ -11,7 +12,7 @@ namespace DoneByMe.Pricing.Infra
 			{
 				if (pricingVerification == null)
 				{
-					pricingVerification = new PricingVerification();
+					pricingVerification = new PricingVerification(Repositories.PricingAnalysisRepository);
 				}
 				return pricingVerification;
 			}
