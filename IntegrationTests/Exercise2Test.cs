@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using DoneByMe.Matching.Infra;
 using DoneByMe.Matching.Model;
 using DoneByMe.Matching.Model.Proposals;
@@ -21,8 +22,11 @@ namespace IntegrationTests
                 summary: "A summary",
                 description: "A description",
                 completedBy: new DateTime(DateTime.Now.Ticks + (24 * 60 * 60 * 1000)),
+                keywords: new HashSet<string> { "Keyword1", "Keyword2"},
                 steps: new Dictionary<int, string> { { 1, "Step 1"} },
                 price: 1995);
+
+                Thread.Sleep(500);
         }
     }
 }

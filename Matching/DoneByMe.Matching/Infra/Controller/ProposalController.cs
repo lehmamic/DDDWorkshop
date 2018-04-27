@@ -22,6 +22,7 @@ namespace DoneByMe.Matching.Infra.Controller
 			string summary,
 			string description,
 			DateTime completedBy,
+			ISet<string> keywords,
 			Dictionary<int, string> steps,
 			long price)
 		{
@@ -32,6 +33,7 @@ namespace DoneByMe.Matching.Infra.Controller
 				summary,
 				description,
 				completedBy,
+				keywords,
 				steps,
 				price);
 		}

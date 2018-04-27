@@ -19,6 +19,11 @@ namespace IntegrationTests
 
             Client client = Client.From("12345");
 
+            ISet<Keyword> keywords = new HashSet<Keyword>
+            {
+                Keyword.Has("Keyword1")
+            };
+
             ISet<Step> steps = new HashSet<Step>();
             steps.Add(Step.Ordered(1, Description.Has("Step 1")));
 
@@ -27,6 +32,7 @@ namespace IntegrationTests
                     Summary.Has("A summary"),
                     Description.Has("A description"),
                     new DateTime(DateTime.Now.Ticks + (24 * 60 * 60 * 1000)),
+                    keywords,
                     steps,
                     1995);
 

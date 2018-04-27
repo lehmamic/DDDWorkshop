@@ -43,6 +43,7 @@ namespace DoneByMe.Matching.Application
 			string summary,
 			string description,
 			DateTime completedBy,
+			ISet<string> keywords,
 			Dictionary<int, string> steps,
 			long price)
 		{
@@ -54,6 +55,7 @@ namespace DoneByMe.Matching.Application
 						Summary.Has(summary),
 						Description.Has(description),
 						completedBy,
+						Keyword.From(keywords),
 						Step.From(steps),
 						price));
 

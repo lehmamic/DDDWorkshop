@@ -82,6 +82,7 @@ namespace DoneByMe.Matching.Model.Proposals
 					Summary.Has(proposalSubmitted.Summary),
 					Description.Has(proposalSubmitted.Description),
 					new DateTime(proposalSubmitted.CompletedBy),
+					Expectations.ConvertToKeywords(proposalSubmitted.Keywords),
 					Expectations.Convert(proposalSubmitted.Steps),
 					proposalSubmitted.Price);
 			this.Progress = Progress.NONE;
