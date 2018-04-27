@@ -44,6 +44,11 @@ namespace VaughnVernon.Mockroservices
         {
             return Representation[key];
         }
+
+        protected string[] StringArrayValue(string key)
+        {
+            return Representation[key];
+        }
     }
 
     public class MessageExchangeReader : InformationExchangeReader
@@ -115,6 +120,11 @@ namespace VaughnVernon.Mockroservices
         }
 
         public string PayloadStringValue(string key)
+        {
+            return DynamicPayload[key];
+        }
+
+        public string[] PayloadStringArrayValue(string key)
         {
             return DynamicPayload[key];
         }

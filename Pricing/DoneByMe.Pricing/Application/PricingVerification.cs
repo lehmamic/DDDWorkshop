@@ -10,7 +10,7 @@ namespace DoneByMe.Pricing.Application {
             this.repository = repository;
         }
 
-        public void VerifyPricing (string pricedItemId, long price) {
+        public void VerifyPricing (string pricedItemId, long price, string[] keywords) {
             new PricingAnalyzer(this.repository).AnalyzePricing (pricedItemId, price);
         }
     }
