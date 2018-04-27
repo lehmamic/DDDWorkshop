@@ -30,7 +30,7 @@ namespace DoneByMe.Matching.Model
 
         public override int GetHashCode()
 		{
-			return Text.GetHashCode();
+			return (Text?.GetHashCode()).GetValueOrDefault();
 		}
 
 		public override bool Equals(object other)
