@@ -19,20 +19,26 @@ namespace DoneByMe.Pricing.Model.Analysis
 		{
 		}
 
-		private PricingAnalysis(string pricedItemId, long price)
+		private PricingAnalysis(string pricedItemId, long price, long suggestedPrice, bool verified)
 		{
-			Apply(PricingVerified.Instance(pricedItemId, price));
+			if(verified)
+			{
+				Apply(PricingVerified.Instance(pricedItemId, price));
+			}
+			else
+			{
+				Apply(PricingRejected.Instance(pricedItemId, price, suggestedPrice));
+			}
 		}
 
-		private PricingAnalysis(string pricedItemId, long price, long suggestedPrice)
-		{
-			Apply(PricingRejected.Instance(pricedItemId, price, suggestedPrice));
-		}
-
-        public static PricingAnalysis AnalizePrice(string pricedItemId, long price)
+        public static PricingAnalysis RejectedWith(string pricedItemId, long price)
         {
-			var verified = price % 2 > 0;
-            return verified ? new PricingAnalysis(pricedItemId, price) : new PricingAnalysis(pricedItemId, price, price * 2);
+            return new PricingAnalysis(pricedItemId, price, price, false);
+        }
+
+        public static PricingAnalysis VerifiedWith(string pricedItemId, long price)
+        {
+            return new PricingAnalysis(pricedItemId, price, price * 2, true);
         }
 
 		public void When(PricingVerified pricingVerified)

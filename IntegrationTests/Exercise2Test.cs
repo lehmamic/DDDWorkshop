@@ -27,6 +27,8 @@ namespace IntegrationTests
                 price: 1995);
 
                 Thread.Sleep(500);
+
+            Console.WriteLine("End of test");
         }
     }
 }

@@ -11,9 +11,19 @@ namespace DoneByMe.Pricing.Model.Analysis {
             // TODO: process in this Domain Service and keep PricingHistory
             Console.WriteLine ("PricingAnalyzer#AnalyzePricing(" + pricedItemId + ", " + price + ")");
 
-            var pricingAnalysis = PricingAnalysis.AnalizePrice(pricedItemId, price);
-			this.repository.Save(pricingAnalysis);
+            // TODO lots of stuff
+			var verified = price % 2 > 0;
 
+            PricingAnalysis pricingAnalysis;
+			if(verified)
+			{
+            	pricingAnalysis = PricingAnalysis.VerifiedWith(pricedItemId, price);
+			}
+			else {
+				pricingAnalysis = PricingAnalysis.RejectedWith(pricedItemId, price);
+			}
+
+			this.repository.Save(pricingAnalysis);
         }
     }
 }
